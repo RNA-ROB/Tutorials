@@ -164,3 +164,13 @@ gatk SelectVariants --exclude-filtered -V [/path/to/marked/SNP/VCF] -O [/path/to
 # Exclude filtered Indels
 gatk SelectVariants --exclude-filtered -V [/path/to/marked/Indel/VCF] -O [/path/to/filtered/Indel/VCF]
 ```
+
+All of the steps summarized above have been captured in a Bash wrapper script [GATK4_VariantCalling.sh](./scripts/GATK4_VariantCalling.sh), which can be executed as follows:
+
+```
+bash GATK4_VariantCalling.sh [/path/to/input/BAM/file] [/path/to/reference/genome/FASTA] [sample ID] [/path/to/output/directory]
+```
+
+As stated before, this script makes the following assumptions:
+- The input WES/WGS BAM file was generated via bwa-mem, and PCR duplicates have been marked/removed
+- The reference genome FASTA is indexed and has a dictionary file
